@@ -21,12 +21,7 @@ async def on_ready():
     await client.change_presence(activity=presencia)
     print(f'\n{client.user} está en línea! \nLatencia: {round(client.latency * 1000)}ms')
     enviar_recordatorios.start()
-
-@client.command()
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
-async def descansar(ctx):
-    await ctx.send(f"{ctx.author.mention}, has llamado al comando. Debes esperar 10 segundos antes de usarlo nuevamente.")
-
+    
 @client.event
 async def on_message(message):
 
